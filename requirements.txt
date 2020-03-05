@@ -1,0 +1,4 @@
+pwntools==4.0.1
+requests==2.23.0
+prettytable==0.7.2
+swpag_client==0.3.7
