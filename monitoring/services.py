@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import threading
 import atexit
 from swpag_client import *
@@ -10,7 +11,7 @@ GREEN = '\033[92m'
 RED = '\033[91m'
 RESET = '\033[0m'
 
-team = Team("http://api.ictf2019.net/", TEAM_TOKEN)
+team = Team("http://api.ictf2020.net/", TEAM_TOKEN)
 
 try:
     TEAM_ID = team.get_team_status()["team_id"]
@@ -65,7 +66,8 @@ def print_status():
         value = "{}{}{}".format(color, state, RESET)
         pwned_value = "{}{}{}".format(
             RED if pwned else GREEN, "yes" if pwned else "no", RESET)
-        table.add_column(service["service_name"], [value, pwned_value])
+        table.add_column(service_states[service_id]["service_name"], [
+                         value, pwned_value])
 
     print(table)
 
